@@ -1,6 +1,7 @@
 const express = require('express');
 const indexRoute = express.Router();
 var NodeGeocoder = require('node-geocoder');
+const Buoy = require('../models/buoy.js');
 
 /* GET home page. */
 indexRoute.get('/', (req, res, next) => {
@@ -30,6 +31,7 @@ indexRoute.post('/dashboard', (req, res, next) => {
         });
         return;
     }
+    /// TURNS USER ZIP TO LAT LONG /////
     geocoder.geocode(userZip, function(err, geocodeResult) {
         if (err) {
             next(err);
@@ -38,10 +40,26 @@ indexRoute.post('/dashboard', (req, res, next) => {
         const latitude = geocodeResult[0].latitude;
         const longitude = geocodeResult[0].longitude;
 
-        res.render('dashboard', {
-            zipcode: userZip,
-            latitude: latitude,
-            longitude: longitude,
+        const userCoords = [longitude, latitude];
+        // Using the user's coords find the closes
+        // Buoy by its coords
+        Buoy.findOne({
+            loc: {
+                $near: userCoords
+            }
+        }, (err, buoys) => {
+            if (err) {
+                next(err);
+                return;
+            }
+            res.render('dashboard',
+             {
+                zipcode: userZip,
+                coords: userCoords,
+                buoyID: buoys.stationID,
+                buoyName: buoys.buoyName
+            });
+
         });
     });
 });
