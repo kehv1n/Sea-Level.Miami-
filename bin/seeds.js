@@ -3,50 +3,62 @@ mongoose.connect('mongodb://localhost/tides-app');
 const Buoy = require('../models/buoy.js');
 
 const buoys = [{
-        buoyName: "HAULOVER PIER, N. MIAMI BEACH, FL ",
-        loc: [-80.120000, 25.903333],
+        buoyName: "Lake Worth Pier, FL ",
+        loc: [-80.035000, 26.613333],
         // latitude: 25.903333,
         // longitude: -80.120000,
-        stationID: 8723080,
-        waterLevelMax: 1.77,
-        waterLevelMin: -1.41
+        stationID: 8722670,
 
     },
     {
-        buoyName: "MIAMI, BISCAYNE BAY, FL",
-        loc: [-80.185000, 25.778333],
+        buoyName: "Vaca Key, FL",
+        loc: [ -81.106667, 24.711667],
         // latitude: 25.778333,
         // longitude:  -80.185000,
-        stationID: 8723165,
-        waterLevelMax: 1.25,
-        waterLevelMin: -1.13,
+        stationID: 8723970
     },
     {
-        buoyName: "MIAMI BEACH, GOVERNMENT CUT, FL",
-        loc: [-80.13000, 25.763333],
+        buoyName: "Key West, FL",
+        loc: [-81.808333, 24.600000],
         // latitude: 25.763333,
         // longitude: -80.13000,
-        stationID: 8723178,
-        waterLevelMax: 1.23,
-        waterLevelMin: -1.34,
+        stationID: 8723178
     },
     {
         buoyName: "Virginia Key, FL",
         loc: [-80.161667, 25.731667],
         // latitude: 25.731667,
         // longitude: -80.161667,
-        stationID: 8723214,
-        waterLevelMax: 2.57,
-        waterLevelMin: -1.31,
+        stationID: 8723214
+
     },
     {
-        buoyName: "CUTLER, BISCAYNE BAY, FL",
-        loc: [-80.305000, 25.615000],
+        buoyName: "Naples, FL",
+        loc: [-81.806667, 26.131667],
         // latitude: 25.615000,
         // longitude: -80.305000,
-        stationID: 8723289,
-        waterLevelMax: 1.32,
-        waterLevelMin: -1.41,
+        stationID: 8725110
+    },
+    {
+        buoyName: "Fort Myers, FL",
+        loc: [ -81.87000, 26.648333],
+        // latitude: 25.615000,
+        // longitude: -80.305000,
+        stationID: 8725520
+    },
+    {
+        buoyName: "Port Manatee, FL",
+        loc: [ -82.563333, 27.638333],
+        // latitude: 25.615000,
+        // longitude: -80.305000,
+        stationID: 8726384
+    },
+    {
+        buoyName: "Trident Pier, FL",
+        loc: [ -80.593333, 28.415000],
+        // latitude: 25.615000,
+        // longitude: -80.305000,
+        stationID: 8721604
     },
 ];
 

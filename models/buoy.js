@@ -9,8 +9,6 @@ const buoySchema = new Schema({
         index: '2d' ///TYPE OF GEOSPACIAL QUERY (FLAT)
     },
     stationID: Number,
-    waterLevelMax: Number,
-    waterLevelMin: Number
 
 });
 

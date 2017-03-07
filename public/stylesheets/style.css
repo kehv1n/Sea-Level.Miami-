@@ -63,21 +63,21 @@ of those sections to manage the look and feel of the site. */
 
 .about-section {
     height: 100%;
-    padding-top: 150px;
+    padding-top: 80px;
     text-align: center;
     background: #eee;
 }
 
 .services-section {
     height: 100%;
-    padding-top: 150px;
+    padding-top: 80px;
     text-align: center;
     background: #fff;
 }
 
 .contact-section {
     height: 100%;
-    padding-top: 150px;
+    padding-top: 80px;
     text-align: center;
     background: #eee;
 }
@@ -99,13 +99,4 @@ of those sections to manage the look and feel of the site. */
 .form-group input{
   width: 40%;
   display: inline-block;
-}
-
-
-.linee2 {
-  margin: 0 auto;
-  width: 200%;
-  height: 3px;
-  background-color: white;
-  border-radius: 8px;
 }
