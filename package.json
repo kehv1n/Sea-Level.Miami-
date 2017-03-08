@@ -19,6 +19,7 @@
     "node-geocoder": "^3.16.0",
     "nodemon": "^1.11.0",
     "request": "^2.80.0",
-    "serve-favicon": "~2.3.2"
+    "serve-favicon": "~2.3.2",
+    "skrollr": "^0.6.26"
   }
 }

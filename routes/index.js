@@ -4,6 +4,16 @@ var NodeGeocoder = require('node-geocoder');
 const Buoy = require('../models/buoy.js');
 const request = require('request');
 
+// $(document).scroll(function() {
+//   var scrollTop = $('html').scrollTop();
+//   if(scrollTop < 150) {
+//     $(".intro-section").fadeIn();
+//   }
+//   else {
+//     $(".intro-section").fadeOut();
+//   }
+// });
+
 
 /* GET home page. */
 indexRoute.get('/', (req, res, next) => {
