@@ -4,7 +4,6 @@ var NodeGeocoder = require('node-geocoder');
 const Buoy = require('../models/buoy.js');
 const request = require('request');
 const User = require('../models/users.js');
-const authRoutes = express.Router();
 const passport = require('passport');
 
 // Bcrypt to encrypt passwords
@@ -62,7 +61,7 @@ indexRoute.post('/dashboard', (req, res, next) => {
             }
             const day = new Date ();
             let dd = day.getDate();
-            let mm = day.getMonth() +1 ; //Starts at 0
+            let mm = day.getMonth() + 1 ; //Starts at 0
             const yy = day.getFullYear();
 
             if(mm < 10) {
@@ -141,7 +140,7 @@ indexRoute.post('/register', (req, res, next) => {
         res.render("/register", { message: "Something went wrong" });
       } else { // If no problem ;)
         req.flash('success' , 'You have been registered. Welcome to the wave.');
-        res.redirect("/");
+        res.redirect("index");
       }
       });
     });
