@@ -86,11 +86,14 @@ indexRoute.post('/dashboard', (req, res, next) => {
                 next(error);
                 return;
               }
+
               res.render('dashboard', {
                 zipcode: userZip,
                 coords: userCoords,
                 buoyID: buoys.stationID,
-                buoyName: buoys.buoyName
+                buoyName: buoys.buoyName,
+                buoyData: body
+
             });
 
             });
@@ -98,5 +101,16 @@ indexRoute.post('/dashboard', (req, res, next) => {
         });
     });
 });
+
+indexRoute.get('/login', (req, res, next) => { ///////////LOGIN PAGE
+  res.render('login');
+});
+
+indexRoute.get('/register', (req, res, next) => { ///////////?REGISTER PAGE
+  res.render('register');
+});
+
+
+
 
 module.exports = indexRoute;
