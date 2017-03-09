@@ -1,1 +1,29 @@
-<h2> this is the reigster page </h2>
+<h2>Signup</h2>
+<div class = "registerForm">
+<form action="/register" method="POST" id="form-container">
+  <label for="firstName">First Name</label>
+  <input id="firstName" type="text" name="firstName" placeholder="Spongebob">
+  <br><br>
+  <label for="lastName">Last Name</label>
+  <input id="lastName" type="text" name="lastName" placeholder="Squarepants">
+  <br><br>
+  <label for="username">Username</label>
+  <input id="username" type="text" name="username" placeholder="SP1999">
+  <br><br>
+  <label for="password">Password</label>
+  <input id="password" type="password" name="password" placeholder="KrustyKrab99">
+
+  <% if (typeof message !== "undefined") { %>
+    <div class="error-message"><%= message %></div>
+  <% } %>
+  <br><br>
+
+  <button>Create account</button>
+
+  <p class="account-message">
+    Do you already have an account?
+    <a href="/login">Login</a>
+  </p>
+</form>
+
+</div>

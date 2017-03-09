@@ -125,3 +125,30 @@ of those sections to manage the look and feel of the site. */
 .buoy {
   float: right;
 }
+
+.success{
+
+  background-color: lightgreen;
+  color: white;
+  width: 300px;
+  height: 20px;
+  border: 1px solid green;
+  padding: 5px
+}
+
+.success:hover {
+  background-color: green;
+  padding: 5px;
+  border: none;
+
+}
+
+.error {
+
+}
+
+.registerForm {
+  margin: 0 auto;
+  padding: 20px;
+  background-color: blue;
+}

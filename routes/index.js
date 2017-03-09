@@ -3,16 +3,13 @@ const indexRoute = express.Router();
 var NodeGeocoder = require('node-geocoder');
 const Buoy = require('../models/buoy.js');
 const request = require('request');
+const User = require('../models/users.js');
+const authRoutes = express.Router();
+const passport = require('passport');
 
-// $(document).scroll(function() {
-//   var scrollTop = $('html').scrollTop();
-//   if(scrollTop < 150) {
-//     $(".intro-section").fadeIn();
-//   }
-//   else {
-//     $(".intro-section").fadeOut();
-//   }
-// });
+// Bcrypt to encrypt passwords
+const bcrypt     = require("bcrypt");
+const bcryptSalt = 10;
 
 
 /* GET home page. */
@@ -22,18 +19,16 @@ indexRoute.get('/', (req, res, next) => {
     });
 });
 
+/// GOOGLE API ACTION
+
 var options = {
     provider: 'google',
-
-    // Optional depending on the providers
-    // httpAdapter: 'https', // Default
-    apiKey: process.env.GMAPS_API, // for Mapquest, OpenCage, Google Premier
-    // formatter: null         // 'gpx', 'string', ...
+    apiKey: process.env.GMAPS_API,
 };
 
 var geocoder = NodeGeocoder(options);
 
-
+/* GET DASHBOARD */
 indexRoute.post('/dashboard', (req, res, next) => {
     const userZip = req.body.zipcode;
 
@@ -77,6 +72,7 @@ indexRoute.post('/dashboard', (req, res, next) => {
               dd = '0'+dd;
             }
 
+             //DATE USER MAKES POST REQ
             const today = `${yy}${mm}${dd}`;
 
             const link = `https://tidesandcurrents.noaa.gov/api/datagetter?station=${buoys.stationID}&product=water_level&time_zone=gmt&format=json&begin_date=${today}&end_date=${today}&units=metric&datum=msl`;
@@ -102,12 +98,53 @@ indexRoute.post('/dashboard', (req, res, next) => {
     });
 });
 
-indexRoute.get('/login', (req, res, next) => { ///////////LOGIN PAGE
+/* GET LOGIN */
+indexRoute.get('/login', (req, res, next) => {
   res.render('login');
 });
 
-indexRoute.get('/register', (req, res, next) => { ///////////?REGISTER PAGE
+/* GET REGISTER */
+indexRoute.get('/register', (req, res, next) => {
   res.render('register');
+});
+
+/* POST REGISTER */
+indexRoute.post('/register', (req, res, next) => {
+  const username = req.body.username;
+  const password = req.body.password;
+  res.render('register');
+
+
+  if (username === "" || password === "") {
+      res.render('/register', { message: "Please make sure you fill both fields" });
+      return;
+    }
+
+    User.findOne({ username }, "username", (err, user) => {
+    if (user !== null) {
+      res.render('/register', { message: "You're already part of the club!" });
+      return;
+    }
+
+  const salt     = bcrypt.genSaltSync(bcryptSalt);
+  const hashPass = bcrypt.hashSync(password, salt);
+
+  const newUser =  User({
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    userName: username,
+    encryptedPassword: hashPass
+  });
+
+  newUser.save((err) => {
+      if (err) { // IF problem
+        res.render("/register", { message: "Something went wrong" });
+      } else { // If no problem ;)
+        req.flash('success' , 'You have been registered. Welcome to the wave.');
+        res.redirect("/");
+      }
+      });
+    });
 });
 
 
