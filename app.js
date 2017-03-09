@@ -11,7 +11,7 @@ const passport     = require('passport'); // Require to make basic authenticatio
 const LocalStrategy= require('passport-local').Strategy;  //
 const bcrypt       = require('bcrypt'); /// REQUIRE bcrypt to encrypt passwords
 const flash        = require('connect-flash'); //// REQUIRE FLASH TO SEND USERS MESSAGES
-
+const User         = require('./models/users.js');
 
 require('dotenv').config();
 const app = express();
