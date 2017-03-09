@@ -6,18 +6,25 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "bcrypt": "^1.0.2",
     "body-parser": "~1.16.0",
     "bootstrap": "^3.3.7",
+    "connect-flash": "^0.1.1",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.0",
     "dotenv": "^4.0.0",
     "ejs": "~2.5.5",
     "express": "~4.14.1",
     "express-ejs-layouts": "~2.2.0",
+    "express-session": "^1.15.1",
     "mongoose": "^4.8.5",
     "morgan": "~1.7.0",
     "node-geocoder": "^3.16.0",
     "nodemon": "^1.11.0",
-    "serve-favicon": "~2.3.2"
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "request": "^2.80.0",
+    "serve-favicon": "~2.3.2",
+    "skrollr": "^0.6.26"
   }
 }
