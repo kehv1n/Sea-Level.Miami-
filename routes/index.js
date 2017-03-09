@@ -4,7 +4,6 @@ var NodeGeocoder = require('node-geocoder');
 const Buoy = require('../models/buoy.js');
 const request = require('request');
 const User = require('../models/users.js');
-const authRoutes = express.Router();
 const passport = require('passport');
 
 // Bcrypt to encrypt passwords
@@ -15,7 +14,8 @@ const bcryptSalt = 10;
 /* GET home page. */
 indexRoute.get('/', (req, res, next) => {
     res.render('index', {
-        title: "Landing"
+        title: "Landing",
+        successMessage: req.flash('success')
     });
 });
 
@@ -100,8 +100,20 @@ indexRoute.post('/dashboard', (req, res, next) => {
 
 /* GET LOGIN */
 indexRoute.get('/login', (req, res, next) => {
-  res.render('login');
+  res.render('login.ejs',{
+    errorMessage: req.flash('error')//req.flash returns array
+  });
 });
+
+// POST LOGIN
+indexRoute.post("/login",
+  passport.authenticate("local", {
+  successReturnToOrRedirect: "/",
+  failureRedirect: "/login",
+  failureFlash: true,
+  successFlash: 'You successfully logged in',
+  passReqToCallback: true
+}));
 
 /* GET REGISTER */
 indexRoute.get('/register', (req, res, next) => {
