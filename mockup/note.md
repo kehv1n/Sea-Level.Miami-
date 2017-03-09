@@ -11,7 +11,7 @@ sea level temperature
 bootstrapstudio costs 25€... i don't have online banking
 so pingendo
 
-#beautiful stock images
+# beautiful free stock images ( mostly creative commons)
     https://blog.snappa.io/free-stock-photos/
 
         ## used https://stocksnap.io/photo/232R4FPI7O
@@ -25,4 +25,11 @@ so pingendo
 
 # zip validator
     http://formvalidation.io/validators/zipCode/
-    
+
+# csv to json 
+    http://www.csvjson.com/csv2json
+    since the demo of 
+    https://www.npmjs.com/package/csvtojson
+    threw an error while converting
+
+# 
