@@ -65,6 +65,8 @@ indexRoute.post('/dashboard', (req, res, next) => {
             let mm = day.getMonth() + 1; //Starts at 0
             const yy = day.getFullYear();
 
+
+
             if (mm < 10) {
                 mm = '0' + mm;
             }
@@ -76,6 +78,17 @@ indexRoute.post('/dashboard', (req, res, next) => {
             const today = `${yy}${mm}${dd}`;
 
             const link = `https://tidesandcurrents.noaa.gov/api/datagetter?station=${buoys.stationID}&product=water_level&time_zone=gmt&format=json&begin_date=${today}&end_date=${today}&units=metric&datum=msl`;
+
+                // const link = `https://tidesandcurrents.noaa.gov/api/datagetter?`
+                // + `station=${buoys.stationID}`
+                // + `product=water_level&`
+                // + `time_zone=gmt&`
+                // + `format=json&`
+                // + `date=today&`
+                // + `units=metric&`
+                // + `datum=msl`
+
+
             ///Returns live data from Buoy////
             request(link, function(error, response, body) {
                 if (error) {
@@ -86,6 +99,7 @@ indexRoute.post('/dashboard', (req, res, next) => {
                 const parsedLevels = [];
                 //Parse the JSON FILES WITH THE data
                 //We want to have
+
                JSON.parse(body, ( name, value ) => {
                     if (name === 't' ) {
                       parsedTimes.push(value);
@@ -101,41 +115,27 @@ indexRoute.post('/dashboard', (req, res, next) => {
                     }
 
                   });
+
+                  sixMinsAgo = new Date(day);
+                  sixMinsAgo.setMinutes(sixMinsAgo.getMinutes() - 6);
+
                   //Turn the string of "dates" to actual dates
-                  parsedTimes.forEach((time) =>{
+                  parsedTimes.forEach((time, index) => {
                     let eachTime = new Date(time);
-                    let eachTimeRangeMAX = new Date(eachTime);
-                    let eachTimeRangeMIN = new Date(eachTime);
-                    //Find the closest time with Range (+6/-6)
-                    eachTimeRangeMAX.setMinutes(eachTime.getMinutes() + 6);
-                    eachTimeRangeMIN.setMinutes(eachTime.getMinutes() - 6);
-
-                  //  eachTime.setMinutes(eachTime.getMinutes() + 6);
-                   //
-                  //   eachTime.setMinutes(eachTime.getMinutes() - 6);
-
-                    if (eachTimeRangeMAX >= day && eachTimeRangeMIN <= day) {
-                      const currentTimeIndex = parsedTimes.indexOf(eachTime);
-                      console.log(currentTimeIndex);
+                    if (eachTime >= sixMinsAgo && eachTime <= day) {
+                      const currentSeaLevel = parsedLevels[index];
+                      console.log (currentSeaLevel);
                     }
+
                   });
                   res.redirect('/');
-                  //
-                  // console.log(parsedData);
-                //
-                // res.render('dashboard', {
-                //     zipcode: userZip,
-                //     coords: userCoords,
-                //     buoyID: buoys.stationID,
-                //     buoyName: buoys.buoyName,
-                //     buoyData: body
-
+                  // res.render('/dashboard', {
+                  //   seaLevel: currentSeaLevel,
+                  //   buoy: buoys
+                  });
                 });
-
             });
-
-        });
-    // });
+        // });
 });
 
 /* GET LOGIN */
