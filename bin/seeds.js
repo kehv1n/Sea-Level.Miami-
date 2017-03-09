@@ -22,7 +22,7 @@ const buoys = [{
         loc: [-81.808333, 24.600000],
         // latitude: 25.763333,
         // longitude: -80.13000,
-        stationID: 8723178
+        stationID: 8724580
     },
     {
         buoyName: "Virginia Key, FL",
