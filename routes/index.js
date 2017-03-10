@@ -74,7 +74,7 @@ indexRoute.post('/dashboard', (req, res, next) => {
             const today = `${yy}${mm}${dd}`;
 
             const link = `https://tidesandcurrents.noaa.gov/api/datagetter?station=${buoys.stationID}&product=water_level&time_zone=gmt&format=json&begin_date=${today}&end_date=${today}&units=metric&datum=msl`;
-            const link4Years = `https://tidesandcurrents.noaa.gov/api/datagetter?product=monthly_mean&application=NOS.COOPS.TAC.WL&station=${buoys.stationID}&begin_date=20130101&end_date=${today}&datum=MSL&units=english&time_zone=GMT&format=json`;
+            const link4Years = `https://tidesandcurrents.noaa.gov/api/datagetter?product=monthly_mean&application=NOS.COOPS.TAC.WL&station=${buoys.stationID}&begin_date=20160101&end_date=${today}&datum=MSL&units=english&time_zone=GMT&format=json`;
 
             // const link = `https://tidesandcurrents.noaa.gov/api/datagetter?`
             // + `station=${buoys.stationID}`
