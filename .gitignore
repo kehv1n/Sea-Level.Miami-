@@ -31,7 +31,3 @@ npm-debug.log
 
 #ENV Shhhhhh
 .env
-
-#bower
-
-bower_components
