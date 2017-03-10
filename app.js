@@ -15,7 +15,7 @@ const User         = require('./models/users.js');
 
 require('dotenv').config();
 const app = express();
-mongoose.connect('mongodb://localhost/tides-app');
+mongoose.connect(process.env.MONGODB_URI);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
