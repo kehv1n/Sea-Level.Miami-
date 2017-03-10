@@ -73,7 +73,9 @@ of those sections to manage the look and feel of the site. */
 
 .page-scroll > a {
   color: white;
+
 }
+
 
 
 .slogan {
@@ -144,7 +146,9 @@ of those sections to manage the look and feel of the site. */
 }
 
 .error {
-
+  background-color: red;
+  padding: 5px;
+  border: none;
 }
 
 .registerForm {

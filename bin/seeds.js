@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/tides-app');
+mongoose.connect(process.env.MONGODB_URI);
 const Buoy = require('../models/buoy.js');
 
 const buoys = [{

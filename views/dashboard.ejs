@@ -2,13 +2,20 @@
 <section id="about" class="about-section">
     <div class="container">
         <div class="row">
-            <div class="col-lg-12 col-sm-12 col-md-12">
+            <div class=" leftDash col-lg-6 col-sm-12 col-md-6">
                 <h1>Your Buoy</h1>
                 <p> Your Buoy is located in <%= buoy.buoyName %> </p>
-                <img class = "buoy" src = "images/buoy.png"></img>
                 <p> The current Sea Level is: <%= seaLevel%> </p>
             </div>
+            <div class = "rightDash col-lg-6 col-sm-12 col-md-6">
+                <img class = "buoy" src = "images/buoy.png"></img>
+            </div>
+            </div>
+            <div class="row">
+              <div class="chart col-lg-12 col-sm-12 col-md-12">
+                <canvas id="myLineChart" width="400" height="200"></canvas>
+              </div>
             </div>
         </div>
-    </div>
+    </div
 </section>
