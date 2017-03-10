@@ -1,0 +1,20 @@
+{
+  "name": "tides-app",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Kevin D. Silva <kevin.dasilva1@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/kehv1n/Sea-Level.Miami-",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "chart.js": "^2.5.0"
+  }
+}

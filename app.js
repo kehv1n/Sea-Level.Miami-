@@ -83,6 +83,9 @@ passport.deserializeUser((id, cb) => {
 
 const indexRoute = require('./routes/index');
 app.use('/', indexRoute);
+//
+// const chartRoute = require('./routes/chart');
+// app.use('/', chartRoute);
 
 /////////////////////// ROUTES ///////////////////////////////////////////////
 

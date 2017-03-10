@@ -1,17 +1,18 @@
 <form action="/login" method="post" id='login-form'>
-  <% if( errorMessage.length > 0){ %>
-    <p class='error'> <%= errorMessage %> </p>
-  <% } %>
-      <div class='input-field'>
-        <label for="username-input"> Username </label>
-        <input class='validate' type="text" name="username" id="username-input"
-      </div>
+    <% if( errorMessage.length > 0){ %>
+        <p class='error'>
+            <%= errorMessage %>
+        </p>
+    <% } %>
+            <div class="inputForm">
+                <div class='input-field'>
+                    <label for="username-input"> Username </label>
+                    <input class='validate' type="text" name="username" id="username-input" </div>
 
-      <div class='input-field'>
-        <label for="password-input"> Password </label>
-        <input class='validate' type="password" name="password" id="password-input"
-
-      </div>
-      <br>
-      <button class=''> Log In </button>
+                    <div class='input-field'>
+                        <label for="password-input"> Password </label>
+                        <input class='validate' type="password" name="password" id="password-input" </div>
+                        <br>
+                        <button class=''> Log In </button>
+                    </div>
 </form>
