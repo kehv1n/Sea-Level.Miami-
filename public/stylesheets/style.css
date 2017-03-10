@@ -157,5 +157,12 @@ of those sections to manage the look and feel of the site. */
 
 #login-form{
   margin-top: 100px;
-  
+}
+
+.porthole {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  left: 350px;
+  bottom: 140px;
 }

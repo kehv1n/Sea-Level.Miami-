@@ -28,7 +28,7 @@ var options = {
 
 var geocoder = NodeGeocoder(options);
 
-/* GET DASHBOARD */
+/* POST DASHBOARD */
 indexRoute.post('/dashboard', (req, res, next) => {
     const userZip = req.body.zipcode;
 
@@ -120,22 +120,22 @@ indexRoute.post('/dashboard', (req, res, next) => {
                   sixMinsAgo.setMinutes(sixMinsAgo.getMinutes() - 6);
 
                   //Turn the string of "dates" to actual dates
+                  let currentSeaLevel;
                   parsedTimes.forEach((time, index) => {
                     let eachTime = new Date(time);
                     if (eachTime >= sixMinsAgo && eachTime <= day) {
-                      const currentSeaLevel = parsedLevels[index];
+                      currentSeaLevel = parsedLevels[index];
                       console.log (currentSeaLevel);
                     }
 
                   });
-                  res.redirect('/');
-                  // res.render('/dashboard', {
-                  //   seaLevel: currentSeaLevel,
-                  //   buoy: buoys
+                  res.render('dashboard', {
+                    seaLevel: currentSeaLevel,
+                    buoy: buoys
                   });
                 });
             });
-        // });
+        });
 });
 
 /* GET LOGIN */
