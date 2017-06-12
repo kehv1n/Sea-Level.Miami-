@@ -9,5 +9,5 @@ The application will tell you the current sea level, tidal levels,  water temper
 
 # How I got involved
 
-*  found the Project on 
+Found the Project on 
 *  https://www.reddit.com/r/enviroaction/comments/5wpuwx/green_software_application/
