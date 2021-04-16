@@ -73,7 +73,6 @@ of those sections to manage the look and feel of the site. */
 
 .page-scroll > a {
   color: white;
-
 }
 
 
@@ -161,6 +160,7 @@ of those sections to manage the look and feel of the site. */
 
 #login-form{
   margin-top: 100px;
+  margin-left: 20px;
 }
 
 .porthole {
